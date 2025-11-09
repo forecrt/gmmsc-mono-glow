@@ -9,8 +9,8 @@ export const Header = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      // Show header after scrolling past 2 full screens (hero + logo sections)
-      setIsVisible(scrollPosition > windowHeight * 2);
+      // Show header after scrolling past hero and logo sections
+      setIsVisible(scrollPosition > windowHeight * 1.5);
     };
 
     window.addEventListener("scroll", handleScroll);

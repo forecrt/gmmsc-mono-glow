@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import hero1 from "@/assets/hero_1.jpg";
 import ict1 from "@/assets/ict1.jpg";
 import ict2 from "@/assets/ict2.jpg";
+import slideshow from "@/assets/slideshow.jpg";
 
-const images = [hero1, ict1, ict2];
+const images = [hero1, ict1, ict2, slideshow];
 
 export const HeroSlideshow = () => {
   const [currentImage, setCurrentImage] = useState(0);
