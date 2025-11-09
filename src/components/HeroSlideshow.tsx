@@ -28,7 +28,7 @@ export const HeroSlideshow = () => {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="fixed top-0 left-0 h-screen w-full overflow-hidden z-0">
       {images.map((image, index) => (
         <div
           key={index}

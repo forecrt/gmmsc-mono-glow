@@ -6,8 +6,10 @@ const Index = () => {
   return (
     <main className="relative">
       <HeroSlideshow />
-      <LogoReveal />
-      <EventsSection />
+      <div className="relative" style={{ marginTop: '100vh' }}>
+        <LogoReveal />
+        <EventsSection />
+      </div>
     </main>
   );
 };

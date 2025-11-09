@@ -17,17 +17,17 @@ export const LogoReveal = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const opacity = Math.max(0, scrollProgress - 0.3) * 2;
-  const scale = 0.5 + (opacity * 0.5);
+  const translateY = Math.max(0, 100 - scrollProgress * 100);
+  const opacity = Math.min(1, scrollProgress * 1.5);
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden z-10">
       <div className="absolute inset-0 bg-background" />
       <div
         className="relative z-10 flex flex-col items-center justify-center gap-8 transition-all duration-300"
         style={{
           opacity: opacity,
-          transform: `scale(${scale})`,
+          transform: `translateY(${translateY}%)`,
         }}
       >
         <img
