@@ -22,7 +22,6 @@ export const LogoReveal = () => {
 
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden z-10">
-      <div className="absolute inset-0 bg-background" />
       <div
         className="relative z-10 flex flex-col items-center justify-center gap-8 transition-all duration-300"
         style={{
