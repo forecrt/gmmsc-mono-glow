@@ -1,6 +1,7 @@
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { LogoReveal } from "@/components/LogoReveal";
 import { EventsSection } from "@/components/EventsSection";
+import { Header } from "@/components/Header";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
         <LogoReveal />
         <EventsSection />
       </div>
+      <Header />
     </main>
   );
 };
