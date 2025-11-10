@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import events from "@/assets/events.jpg";
 import event2 from "@/assets/event2.jpg";
 
-const eventImages = [
-  { src: events, title: "EVENTS" },
-  { src: event2, title: "1ST GMMSC ESPORTS TOURNAMENT 2025" }
-];
+const eventImages = [events, event2];
 
 export const EventsSection = () => {
   const [currentEvent, setCurrentEvent] = useState(0);
@@ -39,7 +36,7 @@ export const EventsSection = () => {
       id="events-section"
       className="relative h-screen w-full overflow-hidden"
     >
-      {eventImages.map((event, index) => (
+      {eventImages.map((image, index) => (
         <div
           key={index}
           className={`absolute inset-0 transition-all duration-1000 ${
@@ -48,24 +45,18 @@ export const EventsSection = () => {
               : "opacity-0 scale-110"
           }`}
           style={{
-            backgroundImage: `url(${event.src})`,
+            backgroundImage: `url(${image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
-      <div
-        className={`absolute top-12 left-12 transition-all duration-1000 delay-300 ${
-          isVisible
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0"
-        }`}
-      >
+      <div className="absolute top-12 left-12">
         <h2 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-glow">
-          {eventImages[currentEvent].title}
+          EVENTS
         </h2>
-        <div className="h-2 w-32 bg-foreground mt-4 animate-slide-in-right" />
+        <div className="h-2 w-32 bg-foreground mt-4" />
       </div>
     </section>
   );

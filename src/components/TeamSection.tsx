@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 import director from "@/assets/drctor.jpg";
+import exc1 from "@/assets/exc1.jpg";
+import exc2 from "@/assets/exc2.jpg";
+import exc3 from "@/assets/exc3.jpg";
+import exc4 from "@/assets/exc4.jpg";
+import exc5 from "@/assets/exc5.jpg";
+import exc6 from "@/assets/exc6.jpg";
+import exc7 from "@/assets/exc7.jpg";
+import exc8 from "@/assets/exc8.jpg";
+
+const executiveImages = [exc1, exc2, exc3, exc4, exc5, exc6, exc7, exc8];
 
 export const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentExec, setCurrentExec] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +28,14 @@ export const TeamSection = () => {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentExec((prev) => (prev + 1) % executiveImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -42,36 +61,34 @@ export const TeamSection = () => {
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 <img
                   src={director}
-                  alt="Director"
+                  alt="Coordinator"
                   className="w-48 h-48 object-cover rounded-lg"
                 />
                 <div className="flex-1">
                   <h3 className="text-3xl font-bold text-foreground mb-2">
                     MD. NURUL HAQUE
                   </h3>
-                  <p className="text-xl text-muted-foreground mb-4">Director</p>
+                  <p className="text-xl text-muted-foreground mb-4">Coordinator</p>
                   <p className="text-foreground leading-relaxed">
-                    As the Director of GMMSC ICT Club, MD. Nurul Haque leads our mission to foster technological innovation and excellence among students. Under his guidance, the club has become a hub for aspiring technologists, providing opportunities to learn, collaborate, and excel in the field of Information and Communication Technology.
+                    As the Coordinator of GMMSC ICT Club, MD. Nurul Haque leads our mission to foster technological innovation and excellence among students. Under his guidance, the club has become a hub for aspiring technologists, providing opportunities to learn, collaborate, and excel in the field of Information and Communication Technology.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-card border border-border rounded-lg p-6 text-center">
-                <div className="w-32 h-32 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-4xl text-muted-foreground">👤</span>
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-2">President</h3>
-                <p className="text-muted-foreground">Name TBA</p>
-              </div>
-
-              <div className="bg-card border border-border rounded-lg p-6 text-center">
-                <div className="w-32 h-32 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-4xl text-muted-foreground">👤</span>
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-2">Secretary</h3>
-                <p className="text-muted-foreground">Name TBA</p>
+            <div className="bg-card border border-border rounded-lg p-8">
+              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Executive Panel</h3>
+              <div className="relative w-full h-96 overflow-hidden rounded-lg">
+                {executiveImages.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`Executive member ${index + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      currentExec === index ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>

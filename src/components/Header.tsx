@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "@/components/NavLink";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/ictclub_new_logo.png";
+import schoolLogo from "@/assets/school_logo.png";
 
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,13 +30,14 @@ export const Header = () => {
         borderTop: "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <NavLink to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src={logo} alt="GMMSC Logo" className="w-10 h-10 object-contain" />
+      <nav className="container mx-auto px-6 py-3">
+        <div className="flex items-center justify-between max-w-4xl mx-auto">
+          <NavLink to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src={logo} alt="GMMSC ICT Club Logo" className="w-8 h-8 object-contain" />
+            <img src={schoolLogo} alt="GMMSC School Logo" className="w-8 h-8 object-contain" />
           </NavLink>
           
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             <NavLink
               to="/events"
               className="text-foreground hover:text-primary transition-colors tracking-wider"
@@ -59,7 +61,7 @@ export const Header = () => {
             </NavLink>
             <NavLink
               to="/join"
-              className="px-6 py-2 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all tracking-wider"
+              className="px-4 py-1.5 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all tracking-wider text-sm"
               activeClassName="bg-foreground text-background"
             >
               JOIN US

@@ -9,11 +9,13 @@ const images = [hero1, ict1, ict2, slideshow];
 export const HeroSlideshow = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [showScroll, setShowScroll] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsVisible(scrollPosition < window.innerHeight * 0.5);
+      setShowScroll(scrollPosition < window.innerHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -44,12 +46,14 @@ export const HeroSlideshow = () => {
         />
       ))}
       <div className="absolute inset-0 bg-black/40" />
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-foreground text-sm tracking-widest">SCROLL</span>
-          <div className="w-px h-12 bg-foreground" />
+      {showScroll && (
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce transition-opacity duration-500">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-foreground text-sm tracking-widest">SCROLL</span>
+            <div className="w-px h-12 bg-foreground" />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

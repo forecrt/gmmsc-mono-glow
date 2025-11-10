@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/ictclub_new_logo.png";
 
 export const LogoReveal = () => {
   const [scrollProgress, setScrollProgress] = useState(0);

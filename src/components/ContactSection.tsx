@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import school from "@/assets/school.jpg";
+import schoolLogo from "@/assets/school_logo.png";
 
 export const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,6 +36,10 @@ export const ContactSection = () => {
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
+      
+      <div className="absolute top-6 left-6">
+        <img src={schoolLogo} alt="GMMSC School Logo" className="w-20 h-20 object-contain" />
+      </div>
       
       <div
         className={`absolute bottom-12 right-12 transition-all duration-1000 delay-300 ${
