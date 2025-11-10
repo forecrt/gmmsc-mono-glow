@@ -38,7 +38,7 @@ export const ContactSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
       
       <div className="absolute top-6 left-6">
-        <img src={schoolLogo} alt="GMMSC School Logo" className="w-20 h-20 object-contain" />
+        <img src={schoolLogo} alt="GMMSC School Logo" className="w-32 h-32 object-contain" />
       </div>
       
       <div

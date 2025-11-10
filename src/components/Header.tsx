@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "@/components/NavLink";
-import logo from "@/assets/ictclub_new_logo.png";
-import schoolLogo from "@/assets/school_logo.png";
+import { Home, Globe, Instagram, Mail, Moon, Sun } from "lucide-react";
 
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
+      const footer = document.querySelector('footer');
+      const footerTop = footer?.getBoundingClientRect().top || 0;
+      
       // Show header after scrolling past hero and logo sections
-      setIsVisible(scrollPosition > windowHeight * 1.5);
+      // Hide when footer is in view
+      setIsVisible(scrollPosition > windowHeight * 1.5 && footerTop > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -19,54 +22,67 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle('dark');
+  };
+
   return (
     <header
-      className={`fixed bottom-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+      className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-500 ${
+        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
-      style={{
-        background: "rgba(0, 0, 0, 0.3)",
-        backdropFilter: "blur(10px)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-      }}
     >
-      <nav className="container mx-auto px-6 py-3">
-        <div className="flex items-center justify-between max-w-4xl mx-auto">
-          <NavLink to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src={logo} alt="GMMSC ICT Club Logo" className="w-8 h-8 object-contain" />
-            <img src={schoolLogo} alt="GMMSC School Logo" className="w-8 h-8 object-contain" />
-          </NavLink>
+      <nav className="bg-background/30 backdrop-blur-md border border-border/50 rounded-full px-6 py-3 shadow-lg">
+        <div className="flex items-center gap-6">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="text-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-background/50"
+            aria-label="Home"
+          >
+            <Home className="w-5 h-5" />
+          </button>
           
-          <div className="flex items-center gap-6">
-            <NavLink
-              to="/events"
-              className="text-foreground hover:text-primary transition-colors tracking-wider"
-              activeClassName="text-primary"
-            >
-              EVENTS
-            </NavLink>
-            <NavLink
-              to="/team"
-              className="text-foreground hover:text-primary transition-colors tracking-wider"
-              activeClassName="text-primary"
-            >
-              TEAM
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className="text-foreground hover:text-primary transition-colors tracking-wider"
-              activeClassName="text-primary"
-            >
-              CONTACT
-            </NavLink>
-            <NavLink
-              to="/join"
-              className="px-4 py-1.5 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all tracking-wider text-sm"
-              activeClassName="bg-foreground text-background"
-            >
-              JOIN US
-            </NavLink>
-          </div>
+          <button
+            onClick={() => scrollToSection('events-section')}
+            className="text-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-background/50"
+            aria-label="Events"
+          >
+            <Globe className="w-5 h-5" />
+          </button>
+          
+          <button
+            onClick={() => scrollToSection('team-section')}
+            className="text-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-background/50"
+            aria-label="Team"
+          >
+            <Instagram className="w-5 h-5" />
+          </button>
+          
+          <button
+            onClick={() => scrollToSection('contact-section')}
+            className="text-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-background/50"
+            aria-label="Contact"
+          >
+            <Mail className="w-5 h-5" />
+          </button>
+
+          <div className="w-px h-6 bg-border" />
+          
+          <button
+            onClick={toggleTheme}
+            className="text-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-background/50"
+            aria-label="Toggle theme"
+          >
+            {isDark ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          </button>
         </div>
       </nav>
     </header>

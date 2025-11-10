@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react";
-import director from "@/assets/drctor.jpg";
-import exc1 from "@/assets/exc1.jpg";
-import exc2 from "@/assets/exc2.jpg";
-import exc3 from "@/assets/exc3.jpg";
-import exc4 from "@/assets/exc4.jpg";
-import exc5 from "@/assets/exc5.jpg";
-import exc6 from "@/assets/exc6.jpg";
-import exc7 from "@/assets/exc7.jpg";
-import exc8 from "@/assets/exc8.jpg";
-
-const executiveImages = [exc1, exc2, exc3, exc4, exc5, exc6, exc7, exc8];
+import { useContent } from "@/hooks/useContent";
 
 export const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentExec, setCurrentExec] = useState(0);
+  const { coordinator, executiveImages } = useContent();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +27,7 @@ export const TeamSection = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [executiveImages.length]);
 
   return (
     <section
@@ -60,17 +51,17 @@ export const TeamSection = () => {
             <div className="bg-card border border-border rounded-lg p-8 mb-8">
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 <img
-                  src={director}
+                  src={coordinator.image}
                   alt="Coordinator"
                   className="w-48 h-48 object-cover rounded-lg"
                 />
                 <div className="flex-1">
                   <h3 className="text-3xl font-bold text-foreground mb-2">
-                    MD. NURUL HAQUE
+                    {coordinator.name}
                   </h3>
                   <p className="text-xl text-muted-foreground mb-4">Coordinator</p>
                   <p className="text-foreground leading-relaxed">
-                    As the Coordinator of GMMSC ICT Club, MD. Nurul Haque leads our mission to foster technological innovation and excellence among students. Under his guidance, the club has become a hub for aspiring technologists, providing opportunities to learn, collaborate, and excel in the field of Information and Communication Technology.
+                    {coordinator.description}
                   </p>
                 </div>
               </div>

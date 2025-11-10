@@ -1,7 +1,11 @@
 import logo from "@/assets/ictclub_new_logo.png";
 import schoolLogo from "@/assets/school_logo.png";
+import { Facebook, Instagram, Youtube } from "lucide-react";
+import { useContent } from "@/hooks/useContent";
 
 export const Footer = () => {
+  const { socialLinks } = useContent();
+
   return (
     <footer className="relative w-full bg-card border-t border-border py-12">
       <div className="container mx-auto px-6">
@@ -17,6 +21,36 @@ export const Footer = () => {
             <p className="text-muted-foreground text-sm">
               Empowering students through technology and innovation
             </p>
+            
+            <div className="flex gap-4 mt-6">
+              <a 
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-6 h-6" />
+              </a>
+              <a 
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a 
+                href={socialLinks.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-6 h-6" />
+              </a>
+            </div>
           </div>
 
           <div>
