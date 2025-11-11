@@ -33,7 +33,7 @@ export const EventsSection = () => {
   return (
     <section
       id="events-section"
-      className="relative h-screen w-screen overflow-hidden"
+      className="relative h-screen w-full overflow-hidden"
     >
       {events.map((event, index) => (
         <div

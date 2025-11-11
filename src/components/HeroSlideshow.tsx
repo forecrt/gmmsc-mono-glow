@@ -47,7 +47,7 @@ export const HeroSlideshow = () => {
       ))}
       <div className="absolute inset-0 bg-black/40" />
       {showScroll && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-bounce transition-opacity duration-500">
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 animate-bounce transition-opacity duration-500">
           <div className="flex flex-col items-center gap-2">
             <span className="text-foreground text-sm tracking-widest">SCROLL</span>
             <div className="w-px h-12 bg-foreground" />

@@ -69,7 +69,7 @@ export const TeamSection = () => {
 
             <div className="bg-card border border-border rounded-lg p-4 md:p-8">
               <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Executive Panel</h3>
-              <div className="relative w-screen md:w-full -mx-4 md:mx-0 h-96 md:h-[600px] overflow-hidden md:rounded-lg">
+              <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-96 md:h-[600px] overflow-hidden">
                 {executiveImages.map((image, index) => (
                   <img
                     key={index}
