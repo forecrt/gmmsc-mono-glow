@@ -67,15 +67,15 @@ export const TeamSection = () => {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-8">
+            <div className="bg-card border border-border rounded-lg p-4 md:p-8">
               <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Executive Panel</h3>
-              <div className="relative w-full h-96 overflow-hidden rounded-lg">
+              <div className="relative w-screen md:w-full -mx-4 md:mx-0 h-96 md:h-[600px] overflow-hidden md:rounded-lg">
                 {executiveImages.map((image, index) => (
                   <img
                     key={index}
                     src={image}
                     alt={`Executive member ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-cover md:object-cover object-center transition-opacity duration-1000 ${
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                       currentExec === index ? "opacity-100" : "opacity-0"
                     }`}
                   />

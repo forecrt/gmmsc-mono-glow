@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Facebook } from "lucide-react";
+import { Facebook, Monitor, Users, Trophy } from "lucide-react";
 import { useContent } from "@/hooks/useContent";
 
 export const JoinUsSection = () => {
@@ -62,7 +62,7 @@ export const JoinUsSection = () => {
 
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all hover:scale-105">
-                  <div className="text-4xl mb-4">💻</div>
+                  <Monitor className="w-12 h-12 mx-auto mb-4 text-primary" />
                   <h3 className="text-xl font-bold text-foreground mb-2">Learn & Grow</h3>
                   <p className="text-muted-foreground">
                     Access workshops, training sessions, and mentorship programs
@@ -70,7 +70,7 @@ export const JoinUsSection = () => {
                 </div>
 
                 <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all hover:scale-105">
-                  <div className="text-4xl mb-4">🤝</div>
+                  <Users className="w-12 h-12 mx-auto mb-4 text-primary" />
                   <h3 className="text-xl font-bold text-foreground mb-2">Network</h3>
                   <p className="text-muted-foreground">
                     Connect with peers, professionals, and industry experts
@@ -78,7 +78,7 @@ export const JoinUsSection = () => {
                 </div>
 
                 <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all hover:scale-105">
-                  <div className="text-4xl mb-4">🏆</div>
+                  <Trophy className="w-12 h-12 mx-auto mb-4 text-primary" />
                   <h3 className="text-xl font-bold text-foreground mb-2">Compete</h3>
                   <p className="text-muted-foreground">
                     Participate in competitions, hackathons, and esports tournaments
