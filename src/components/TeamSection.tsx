@@ -75,7 +75,7 @@ export const TeamSection = () => {
                     key={index}
                     src={image}
                     alt={`Executive member ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                    className={`absolute inset-0 w-full h-full object-cover md:object-cover object-center transition-opacity duration-1000 ${
                       currentExec === index ? "opacity-100" : "opacity-0"
                     }`}
                   />

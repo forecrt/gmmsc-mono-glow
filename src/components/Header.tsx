@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Home, Globe, Instagram, Mail, Moon, Sun } from "lucide-react";
+import logo from "@/assets/ictclub_new_logo.png";
 
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,12 +37,14 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-500 ${
+      className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
       <nav className="bg-background/30 backdrop-blur-md border border-border/50 rounded-full px-6 py-3 shadow-lg">
         <div className="flex items-center gap-6">
+          <img src={logo} alt="ICT Club" className="w-8 h-8 object-contain" />
+          
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="text-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-background/50"
@@ -67,9 +70,9 @@ export const Header = () => {
           </button>
           
           <button
-            onClick={() => scrollToSection('contact-section')}
+            onClick={() => scrollToSection('join-section')}
             className="text-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-background/50"
-            aria-label="Contact"
+            aria-label="Join Us"
           >
             <Mail className="w-5 h-5" />
           </button>

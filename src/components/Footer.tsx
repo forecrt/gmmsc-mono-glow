@@ -92,6 +92,7 @@ export const Footer = () => {
 
         <div className="border-t border-border pt-6 text-center text-muted-foreground text-sm">
           <p>&copy; {new Date().getFullYear()} GMMSC ICT Club. All rights reserved.</p>
+          <p className="mt-2 text-xs">Developed by Ornob</p>
         </div>
       </div>
     </footer>
