@@ -40,9 +40,9 @@ export const AboutUsSection = () => {
   return (
     <section
       id="about-section"
-      className="relative min-h-screen w-full bg-background py-20"
+      className="relative min-h-screen w-full bg-background py-16"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-5">
         <div
           className={`transition-all duration-1000 ${
             isVisible
@@ -50,30 +50,30 @@ export const AboutUsSection = () => {
               : "translate-y-10 opacity-0"
           }`}
         >
-          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-4">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground mb-3">
             ABOUT US
           </h2>
-          <div className="h-2 w-32 bg-primary mb-16" />
+          <div className="h-2 w-28 bg-primary mb-14" />
 
-          <div className="max-w-4xl mb-16">
-            <p className="text-xl md:text-2xl text-foreground leading-relaxed">
+          <div className="max-w-4xl mb-14">
+            <p className="text-lg md:text-xl text-foreground leading-relaxed">
               Welcome to GMMSC ICT Club, where innovation meets passion. We are a vibrant community of tech enthusiasts, programmers, designers, and gamers dedicated to pushing the boundaries of technology. Our club provides a platform for students to learn, collaborate, and create cutting-edge solutions while building lasting professional relationships. Join us on our journey to explore the limitless possibilities of technology.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className="bg-card border border-border rounded-lg p-8 hover:border-foreground transition-all duration-300"
+                  className="bg-card border border-border rounded-lg p-7 hover:border-foreground transition-all duration-300"
                 >
-                  <Icon className="w-12 h-12 mb-4 text-foreground" />
-                  <h3 className="text-3xl font-bold text-foreground mb-4">
+                  <Icon className="w-11 h-11 mb-3 text-foreground" />
+                  <h3 className="text-2xl font-bold text-foreground mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-lg">
+                  <p className="text-muted-foreground text-base">
                     {feature.description}
                   </p>
                 </div>

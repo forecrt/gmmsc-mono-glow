@@ -34,14 +34,14 @@ export const JoinUsSection = () => {
     <>
       <section
         id="join-section"
-        className="relative min-h-screen w-full bg-gradient-to-br from-background via-primary/5 to-background py-20 flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen w-full bg-gradient-to-br from-background via-primary/5 to-background py-16 flex items-center justify-center overflow-hidden"
       >
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-16 left-8 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-16 right-8 w-80 h-80 bg-primary rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-5 relative z-10">
           <div
             className={`transition-all duration-1000 ${
               isVisible
@@ -50,37 +50,37 @@ export const JoinUsSection = () => {
             }`}
           >
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-6">
+              <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground mb-5">
                 JOIN US
               </h2>
-              <div className="h-2 w-32 bg-primary mx-auto mb-12" />
+              <div className="h-2 w-28 bg-primary mx-auto mb-10" />
               
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
                 Become a part of GMMSC ICT Club and embark on a journey of technological excellence. 
                 Connect with like-minded individuals, participate in exciting events, and shape the future of technology.
               </p>
 
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
-                <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all hover:scale-105">
-                  <Monitor className="w-12 h-12 mx-auto mb-4 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">Learn & Grow</h3>
-                  <p className="text-muted-foreground">
+              <div className="grid md:grid-cols-3 gap-7 mb-10">
+                <div className="bg-card border border-border rounded-lg p-5 hover:border-primary transition-all hover:scale-105">
+                  <Monitor className="w-11 h-11 mx-auto mb-3 text-primary" />
+                  <h3 className="text-lg font-bold text-foreground mb-2">Learn & Grow</h3>
+                  <p className="text-muted-foreground text-sm">
                     Access workshops, training sessions, and mentorship programs
                   </p>
                 </div>
 
-                <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all hover:scale-105">
-                  <Users className="w-12 h-12 mx-auto mb-4 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">Network</h3>
-                  <p className="text-muted-foreground">
+                <div className="bg-card border border-border rounded-lg p-5 hover:border-primary transition-all hover:scale-105">
+                  <Users className="w-11 h-11 mx-auto mb-3 text-primary" />
+                  <h3 className="text-lg font-bold text-foreground mb-2">Network</h3>
+                  <p className="text-muted-foreground text-sm">
                     Connect with peers, professionals, and industry experts
                   </p>
                 </div>
 
-                <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all hover:scale-105">
-                  <Trophy className="w-12 h-12 mx-auto mb-4 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">Compete</h3>
-                  <p className="text-muted-foreground">
+                <div className="bg-card border border-border rounded-lg p-5 hover:border-primary transition-all hover:scale-105">
+                  <Trophy className="w-11 h-11 mx-auto mb-3 text-primary" />
+                  <h3 className="text-lg font-bold text-foreground mb-2">Compete</h3>
+                  <p className="text-muted-foreground text-sm">
                     Participate in competitions, hackathons, and esports tournaments
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export const JoinUsSection = () => {
 
               <Button 
                 size="lg" 
-                className="text-lg px-8 py-6 font-bold tracking-wider hover:scale-105 transition-transform"
+                className="text-base px-7 py-5 font-bold tracking-wider hover:scale-105 transition-transform"
                 onClick={() => setShowDialog(true)}
               >
                 BECOME A MEMBER

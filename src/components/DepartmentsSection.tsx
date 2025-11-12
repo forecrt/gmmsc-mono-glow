@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { Cpu, Code, Palette, Gamepad2 } from "lucide-react";
+import itSkillsLogo from "@/assets/it-skills-logo.png";
+import programmingLogo from "@/assets/programming-logo.png";
+import ccLogo from "@/assets/cc-logo.png";
+import gamingLogo from "@/assets/gaming-logo.png";
 
 export const DepartmentsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,22 +24,22 @@ export const DepartmentsSection = () => {
 
   const departments = [
     {
-      icon: Cpu,
+      logo: itSkillsLogo,
       title: "IT Skills",
       description: "Hardware, networking, and system administration"
     },
     {
-      icon: Code,
+      logo: programmingLogo,
       title: "Programming",
       description: "Software development and coding excellence"
     },
     {
-      icon: Palette,
+      logo: ccLogo,
       title: "Content Creation",
       description: "Digital media, design, and creative content"
     },
     {
-      icon: Gamepad2,
+      logo: gamingLogo,
       title: "Gaming",
       description: "Game development and esports"
     }
@@ -45,9 +48,9 @@ export const DepartmentsSection = () => {
   return (
     <section
       id="departments-section"
-      className="relative min-h-screen w-full bg-card py-20"
+      className="relative min-h-screen w-full bg-card py-16"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-5">
         <div
           className={`transition-all duration-1000 ${
             isVisible
@@ -55,29 +58,30 @@ export const DepartmentsSection = () => {
               : "translate-y-10 opacity-0"
           }`}
         >
-          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-4">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground mb-3">
             OUR DEPARTMENTS
           </h2>
-          <div className="h-2 w-32 bg-primary mb-16" />
+          <div className="h-2 w-28 bg-primary mb-14" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {departments.map((dept, index) => {
-              const Icon = dept.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-background border border-border rounded-lg p-8 hover:border-foreground transition-all duration-300 group"
-                >
-                  <Icon className="w-16 h-16 mb-6 text-foreground group-hover:scale-110 transition-transform duration-300" />
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    {dept.title}
-                  </h3>
-                  <p className="text-muted-foreground text-base leading-relaxed">
-                    {dept.description}
-                  </p>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+            {departments.map((dept, index) => (
+              <div
+                key={index}
+                className="bg-background border border-border rounded-lg p-7 hover:border-foreground transition-all duration-300 group"
+              >
+                <img 
+                  src={dept.logo} 
+                  alt={dept.title}
+                  className="w-14 h-14 mb-5 object-contain group-hover:scale-110 transition-transform duration-300"
+                />
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {dept.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {dept.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

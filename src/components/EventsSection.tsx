@@ -33,12 +33,12 @@ export const EventsSection = () => {
   return (
     <section
       id="events-section"
-      className="relative h-screen w-screen overflow-hidden"
+      className="relative h-screen w-full overflow-hidden"
     >
       {events.map((event, index) => (
         <div
           key={index}
-          className={`absolute inset-0 w-screen h-screen transition-all duration-1000 cursor-pointer ${
+          className={`absolute inset-0 w-full h-full transition-all duration-1000 cursor-pointer ${
             currentEvent === index && isVisible
               ? "opacity-100 scale-100"
               : "opacity-0 scale-110"
@@ -49,13 +49,12 @@ export const EventsSection = () => {
           <img 
             src={event.image}
             alt={`Event ${index + 1}`}
-            className="w-screen h-screen object-cover"
-            style={{ width: '100vw', height: '100vh' }}
+            className="w-full h-full object-cover"
           />
           {hoveredEvent === index && event.description && (
-            <div className="absolute inset-0 bg-black/70 flex items-center justify-center p-12 animate-in fade-in duration-300">
-              <div className="max-w-2xl text-center">
-                <p className="text-white text-xl md:text-2xl leading-relaxed">
+            <div className="absolute inset-0 bg-black/70 flex items-center justify-center p-10 animate-in fade-in duration-300">
+              <div className="max-w-xl text-center">
+                <p className="text-white text-lg md:text-xl leading-relaxed">
                   {event.description}
                 </p>
               </div>
@@ -64,11 +63,11 @@ export const EventsSection = () => {
         </div>
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
-      <div className="absolute top-12 left-12 pointer-events-none">
-        <h2 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-glow">
+      <div className="absolute top-10 left-10 pointer-events-none">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-glow">
           EVENTS
         </h2>
-        <div className="h-2 w-32 bg-foreground mt-4" />
+        <div className="h-2 w-28 bg-foreground mt-3" />
       </div>
     </section>
   );
