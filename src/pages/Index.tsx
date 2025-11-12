@@ -1,5 +1,7 @@
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { LogoReveal } from "@/components/LogoReveal";
+import { AboutUsSection } from "@/components/AboutUsSection";
+import { DepartmentsSection } from "@/components/DepartmentsSection";
 import { EventsSection } from "@/components/EventsSection";
 import { TeamSection } from "@/components/TeamSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -13,6 +15,8 @@ const Index = () => {
       <HeroSlideshow />
       <div className="relative" style={{ marginTop: '100vh' }}>
         <LogoReveal />
+        <AboutUsSection />
+        <DepartmentsSection />
         <EventsSection />
         <TeamSection />
         <JoinUsSection />

@@ -33,24 +33,25 @@ export const EventsSection = () => {
   return (
     <section
       id="events-section"
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-screen w-screen overflow-hidden"
     >
       {events.map((event, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-all duration-1000 cursor-pointer ${
+          className={`absolute inset-0 w-screen h-screen transition-all duration-1000 cursor-pointer ${
             currentEvent === index && isVisible
               ? "opacity-100 scale-100"
               : "opacity-0 scale-110"
           }`}
-          style={{
-            backgroundImage: `url(${event.image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
           onMouseEnter={() => setHoveredEvent(index)}
           onMouseLeave={() => setHoveredEvent(null)}
         >
+          <img 
+            src={event.image}
+            alt={`Event ${index + 1}`}
+            className="w-screen h-screen object-cover"
+            style={{ width: '100vw', height: '100vh' }}
+          />
           {hoveredEvent === index && event.description && (
             <div className="absolute inset-0 bg-black/70 flex items-center justify-center p-12 animate-in fade-in duration-300">
               <div className="max-w-2xl text-center">
