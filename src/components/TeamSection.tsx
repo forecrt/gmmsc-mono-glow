@@ -1,10 +1,86 @@
 import { useEffect, useState } from "react";
 import { useContent } from "@/hooks/useContent";
+import { Facebook, Instagram } from "lucide-react";
 
 export const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentExec, setCurrentExec] = useState(0);
-  const { coordinator, executiveImages } = useContent();
+  const { coordinator } = useContent();
+
+  // Executive members data
+  const executiveMembers = [
+    {
+      name: "Rubiyat Partho",
+      role: "President",
+      batch: "Section: 12-Beta",
+      id: "240982",
+      image: "/src/assets/exc1.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+    {
+      name: "Arian Aas Sami",
+      role: "General Secretary",
+      batch: "Section: 12-Beta",
+      id: "241043",
+      image: "/src/assets/exc2.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+    {
+      name: "Rubaiya Zahin",
+      role: "Vice President",
+      batch: "Section: 12-Marigold",
+      id: "241345",
+      image: "/src/assets/exc3.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+    {
+      name: "Arafat Hossain Shovon",
+      role: "Vice President",
+      batch: "Section: 12-Alpha",
+      id: "240824",
+      image: "/src/assets/exc4.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+    {
+      name: "Sheikh Md. Tamim Hasan",
+      role: "Additional General Secretary",
+      batch: "Section: 12-Beta",
+      id: "241001",
+      image: "/src/assets/exc5.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+    {
+      name: "Md. Khairul Noman Shaikh",
+      role: "Joint Secretary",
+      batch: "Section: 12-Beta",
+      id: "240988",
+      image: "/src/assets/exc6.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+    {
+      name: "Amna Nuzhat Shabber",
+      role: "Joint Secretary",
+      batch: "Section: 12-Aparajita",
+      id: "241100",
+      image: "/src/assets/exc7.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+    {
+      name: "Aboni Mahfuz",
+      role: "Organizing Secretary",
+      batch: "Section: 12-Marigold",
+      id: "240880",
+      image: "/src/assets/exc8.jpg",
+      facebook: "#",
+      instagram: "#",
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,13 +97,6 @@ export const TeamSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentExec((prev) => (prev + 1) % executiveImages.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [executiveImages.length]);
 
   return (
     <section
@@ -67,18 +136,53 @@ export const TeamSection = () => {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-4 md:p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Executive Panel</h3>
-              <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-96 md:h-[600px] overflow-hidden">
-                {executiveImages.map((image, index) => (
-                  <img
+            <div className="bg-card border border-border rounded-lg p-6 md:p-7">
+              <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Executive Committee</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                {executiveMembers.map((member, index) => (
+                  <div
                     key={index}
-                    src={image}
-                    alt={`Executive member ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                      currentExec === index ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
+                    className="bg-background border border-border rounded-lg p-5 flex flex-col items-center text-center hover:border-primary transition-all duration-300"
+                  >
+                    <div className="w-28 h-28 rounded-full overflow-hidden mb-3 border-2 border-primary">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="text-base font-bold text-foreground mb-1">
+                      {member.name}
+                    </h4>
+                    <p className="text-sm text-primary font-semibold mb-2">{member.role}</p>
+                    <div className="text-xs text-muted-foreground space-y-0.5">
+                      <p>Batch:</p>
+                      <p>{member.batch}</p>
+                      <p>ID: {member.id}</p>
+                    </div>
+                    <div className="flex gap-3 mt-3">
+                      {member.facebook && (
+                        <a
+                          href={member.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Facebook className="w-4 h-4" />
+                        </a>
+                      )}
+                      {member.instagram && (
+                        <a
+                          href={member.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Instagram className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
