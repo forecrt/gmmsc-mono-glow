@@ -1,3 +1,4 @@
+import React from "react";
 import logo from "@/assets/ictclub_new_logo.png";
 import schoolLogo from "@/assets/school_logo.png";
 import { Facebook, Instagram, Youtube } from "lucide-react";
@@ -5,6 +6,16 @@ import { useContent } from "@/hooks/useContent";
 
 export const Footer = () => {
   const { socialLinks } = useContent();
+  const [textColor, setTextColor] = React.useState('#ffffff');
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      const randomColor = `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')}`;
+      setTextColor(randomColor);
+    }, 100);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <footer className="relative w-full bg-card border-t border-border py-12">
@@ -92,7 +103,9 @@ export const Footer = () => {
 
         <div className="border-t border-border pt-6 text-center text-muted-foreground text-sm">
           <p>&copy; {new Date().getFullYear()} GMMSC ICT Club. All rights reserved.</p>
-          <p className="mt-2 text-xs">Developed by Ornob</p>
+          <p className="mt-2 text-xs font-bold" style={{ color: textColor }}>
+            Developed by Ornob
+          </p>
         </div>
       </div>
     </footer>

@@ -8,78 +8,18 @@ export const TeamSection = () => {
 
   // Executive members data
   const executiveMembers = [
-    {
-      name: "Rubiyat Partho",
-      role: "President",
-      batch: "Section: 12-Beta",
-      id: "240982",
-      image: "/src/assets/exc1.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
-    {
-      name: "Arian Aas Sami",
-      role: "General Secretary",
-      batch: "Section: 12-Beta",
-      id: "241043",
-      image: "/src/assets/exc2.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
-    {
-      name: "Rubaiya Zahin",
-      role: "Vice President",
-      batch: "Section: 12-Marigold",
-      id: "241345",
-      image: "/src/assets/exc3.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
-    {
-      name: "Arafat Hossain Shovon",
-      role: "Vice President",
-      batch: "Section: 12-Alpha",
-      id: "240824",
-      image: "/src/assets/exc4.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
-    {
-      name: "Sheikh Md. Tamim Hasan",
-      role: "Additional General Secretary",
-      batch: "Section: 12-Beta",
-      id: "241001",
-      image: "/src/assets/exc5.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
-    {
-      name: "Md. Khairul Noman Shaikh",
-      role: "Joint Secretary",
-      batch: "Section: 12-Beta",
-      id: "240988",
-      image: "/src/assets/exc6.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
-    {
-      name: "Amna Nuzhat Shabber",
-      role: "Joint Secretary",
-      batch: "Section: 12-Aparajita",
-      id: "241100",
-      image: "/src/assets/exc7.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
-    {
-      name: "Aboni Mahfuz",
-      role: "Organizing Secretary",
-      batch: "Section: 12-Marigold",
-      id: "240880",
-      image: "/src/assets/exc8.jpg",
-      facebook: "#",
-      instagram: "#",
-    },
+    { name: "Rubiyat Partho", batch: "2025-26" },
+    { name: "Arian Aas Sami", batch: "2025-26" },
+    { name: "Rubaiya Zahin", batch: "2025-26" },
+    { name: "Arafat Hossain Shovon", batch: "2025-26" },
+    { name: "Sheikh Md. Tamim Hasan", batch: "2025-26" },
+    { name: "Md. Khairul Noman Shaikh", batch: "2025-26" },
+    { name: "Amna Nuzhat Shabber", batch: "2025-26" },
+    { name: "Aboni Mahfuz", batch: "2025-26" },
+    { name: "Navin Mahbub", batch: "2025-26" },
+    { name: "Zarin Tasnim Moumita", batch: "2025-26" },
+    { name: "Mst. Marufa Akter", batch: "2025-26" },
+    { name: "S M Ishmam", batch: "2025-26" },
   ];
 
   useEffect(() => {
@@ -138,52 +78,29 @@ export const TeamSection = () => {
 
             <div className="bg-card border border-border rounded-lg p-6 md:p-7">
               <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Executive Committee</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                {executiveMembers.map((member, index) => (
-                  <div
-                    key={index}
-                    className="bg-background border border-border rounded-lg p-5 flex flex-col items-center text-center hover:border-primary transition-all duration-300"
-                  >
-                    <div className="w-28 h-28 rounded-full overflow-hidden mb-3 border-2 border-primary">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
+              <div className="overflow-x-auto md:overflow-visible scrollbar-hide">
+                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-4 md:pb-0">
+                  {executiveMembers.map((member, index) => (
+                    <div
+                      key={index}
+                      className="bg-background border border-border rounded-lg p-5 flex flex-col items-center text-center hover:border-primary transition-all duration-300 min-w-[200px] md:min-w-0 flex-shrink-0"
+                    >
+                      <div className="w-28 h-28 rounded-full overflow-hidden mb-3 border-2 border-primary">
+                        <img
+                          src="/src/assets/default-exec.jpg"
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h4 className="text-base font-bold text-foreground mb-1">
+                        {member.name}
+                      </h4>
+                      <div className="text-xs text-muted-foreground">
+                        <p>Batch: {member.batch}</p>
+                      </div>
                     </div>
-                    <h4 className="text-base font-bold text-foreground mb-1">
-                      {member.name}
-                    </h4>
-                    <p className="text-sm text-primary font-semibold mb-2">{member.role}</p>
-                    <div className="text-xs text-muted-foreground space-y-0.5">
-                      <p>Batch:</p>
-                      <p>{member.batch}</p>
-                      <p>ID: {member.id}</p>
-                    </div>
-                    <div className="flex gap-3 mt-3">
-                      {member.facebook && (
-                        <a
-                          href={member.facebook}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          <Facebook className="w-4 h-4" />
-                        </a>
-                      )}
-                      {member.instagram && (
-                        <a
-                          href={member.instagram}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          <Instagram className="w-4 h-4" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
