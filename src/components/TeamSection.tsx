@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useContent } from "@/hooks/useContent";
-import { Facebook, Instagram } from "lucide-react";
+import { Award } from "lucide-react";
 
 export const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -79,18 +79,22 @@ export const TeamSection = () => {
             <div className="bg-card border border-border rounded-lg p-6 md:p-7">
               <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Executive Committee</h3>
               <div className="overflow-x-auto md:overflow-visible scrollbar-hide">
-                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-4 md:pb-0">
-                  {executiveMembers.map((member, index) => (
+                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-4 md:pb-0 md:animate-none animate-[auto-scroll_20s_linear_infinite]">
+                  {/* Duplicate for seamless scroll on mobile */}
+                  {[...executiveMembers, ...executiveMembers].map((member, index) => (
                     <div
                       key={index}
                       className="bg-background border border-border rounded-lg p-5 flex flex-col items-center text-center hover:border-primary transition-all duration-300 min-w-[200px] md:min-w-0 flex-shrink-0"
                     >
-                      <div className="w-28 h-28 rounded-full overflow-hidden mb-3 border-2 border-primary">
+                      <div className="w-28 h-28 rounded-full overflow-hidden mb-3 border-2 border-primary relative">
                         <img
                           src="/src/assets/default-exec.jpg"
                           alt={member.name}
                           className="w-full h-full object-cover"
                         />
+                        <div className="absolute -top-1 -right-1 w-8 h-8 bg-primary rounded-full flex items-center justify-center border-2 border-background">
+                          <Award className="w-4 h-4 text-primary-foreground" />
+                        </div>
                       </div>
                       <h4 className="text-base font-bold text-foreground mb-1">
                         {member.name}
