@@ -3,6 +3,7 @@ import logo from "@/assets/ictclub_new_logo.png";
 import schoolLogo from "@/assets/school_logo.png";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { useContent } from "@/hooks/useContent";
+import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 export const Footer = () => {
   const { socialLinks } = useContent();
@@ -103,9 +104,43 @@ export const Footer = () => {
 
         <div className="border-t border-border pt-6 text-center text-muted-foreground text-sm">
           <p>&copy; {new Date().getFullYear()} GMMSC ICT Club. All rights reserved.</p>
-          <p className="mt-2 text-xs font-bold" style={{ color: textColor }}>
-            Developed by Ornob
-          </p>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <p 
+                className="mt-2 text-xs font-bold glitch" 
+                style={{ color: textColor }}
+                data-text="Developed by Ornob"
+              >
+                Developed by Ornob
+              </p>
+            </AlertDialogTrigger>
+            <AlertDialogContent className="bg-card border-border">
+              <AlertDialogHeader>
+                <AlertDialogTitle className="text-foreground text-center text-xl">
+                  Contact Developer
+                </AlertDialogTitle>
+                <AlertDialogDescription className="text-muted-foreground space-y-3 text-center">
+                  <p className="text-base">
+                    <strong className="text-foreground">Email:</strong>{" "}
+                    <a href="mailto:mdjabad535@gmail.com" className="text-primary hover:underline">
+                      mdjabad535@gmail.com
+                    </a>
+                  </p>
+                  <p className="text-base">
+                    <strong className="text-foreground">Instagram:</strong>{" "}
+                    <a 
+                      href="https://www.instagram.com/ja_b_ad" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      @ja_b_ad
+                    </a>
+                  </p>
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </div>
     </footer>
