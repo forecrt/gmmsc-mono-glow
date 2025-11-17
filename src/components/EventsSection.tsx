@@ -4,7 +4,6 @@ import { useContent } from "@/hooks/useContent";
 export const EventsSection = () => {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredEvent, setHoveredEvent] = useState<number | null>(null);
   const { events } = useContent();
 
   useEffect(() => {
@@ -38,28 +37,17 @@ export const EventsSection = () => {
       {events.map((event, index) => (
         <div
           key={index}
-          className={`absolute inset-0 w-full h-full transition-all duration-1000 cursor-pointer ${
+          className={`absolute inset-0 w-full h-full transition-all duration-1000 ${
             currentEvent === index && isVisible
               ? "opacity-100 scale-100"
               : "opacity-0 scale-110"
           }`}
-          onMouseEnter={() => setHoveredEvent(index)}
-          onMouseLeave={() => setHoveredEvent(null)}
         >
           <img 
             src={event.image}
             alt={`Event ${index + 1}`}
             className="w-full h-full object-cover"
           />
-          {hoveredEvent === index && event.description && (
-            <div className="absolute inset-0 bg-black/70 flex items-center justify-center p-10 animate-in fade-in duration-300">
-              <div className="max-w-xl text-center">
-                <p className="text-white text-lg md:text-xl leading-relaxed">
-                  {event.description}
-                </p>
-              </div>
-            </div>
-          )}
         </div>
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
