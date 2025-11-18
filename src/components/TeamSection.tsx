@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { useContent } from "@/hooks/useContent";
 import { UserCircle } from "lucide-react";
+import parthoImg from "@/assets/partho.jpg";
+import arianImg from "@/assets/arian.jpg";
+import rubaiyaImg from "@/assets/rubaiya.jpg";
+import tamimImg from "@/assets/tamim.jpg";
+import nomanImg from "@/assets/noman.jpg";
+import aboniImg from "@/assets/aboni.jpg";
+import navinImg from "@/assets/navin.jpg";
+import ishmaImg from "@/assets/ishmam.jpg";
 
 export const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,18 +16,18 @@ export const TeamSection = () => {
 
   // Executive members data
   const executiveMembers = [
-    { name: "Rubiyat Partho", batch: "2025-26" },
-    { name: "Arian Aas Sami", batch: "2025-26" },
-    { name: "Rubaiya Zahin", batch: "2025-26" },
+    { name: "Rubiyat Partho", batch: "2025-26", image: parthoImg },
+    { name: "Arian Aas Sami", batch: "2025-26", image: arianImg },
+    { name: "Rubaiya Zahin", batch: "2025-26", image: rubaiyaImg },
     { name: "Arafat Hossain Shovon", batch: "2025-26" },
-    { name: "Sheikh Md. Tamim Hasan", batch: "2025-26" },
-    { name: "Md. Khairul Noman Shaikh", batch: "2025-26" },
+    { name: "Sheikh Md. Tamim Hasan", batch: "2025-26", image: tamimImg },
+    { name: "Md. Khairul Noman Shaikh", batch: "2025-26", image: nomanImg },
     { name: "Amna Nuzhat Shabber", batch: "2025-26" },
-    { name: "Aboni Mahfuz", batch: "2025-26" },
-    { name: "Navin Mahbub", batch: "2025-26" },
+    { name: "Aboni Mahfuz", batch: "2025-26", image: aboniImg },
+    { name: "Navin Mahbub", batch: "2025-26", image: navinImg },
     { name: "Zarin Tasnim Moumita", batch: "2025-26" },
     { name: "Mst. Marufa Akter", batch: "2025-26" },
-    { name: "S M Ishmam", batch: "2025-26" },
+    { name: "S M Ishmam", batch: "2025-26", image: ishmaImg },
   ];
 
   useEffect(() => {
@@ -85,8 +93,16 @@ export const TeamSection = () => {
                       key={index}
                       className="bg-background border border-border rounded-lg p-5 flex flex-col items-center text-center hover:border-primary transition-all duration-300 min-w-[200px] md:min-w-0 flex-shrink-0"
                     >
-                      <div className="w-28 h-28 rounded-full mb-3 border-2 border-primary bg-card flex items-center justify-center">
-                        <UserCircle className="w-20 h-20 text-primary" strokeWidth={1.5} />
+                      <div className="w-28 h-28 rounded-full mb-3 border-2 border-primary bg-card flex items-center justify-center overflow-hidden">
+                        {member.image ? (
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <UserCircle className="w-20 h-20 text-primary" strokeWidth={1.5} />
+                        )}
                       </div>
                       <h4 className="text-base font-bold text-foreground mb-1">
                         {member.name}
