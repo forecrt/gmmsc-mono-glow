@@ -79,9 +79,8 @@ export const TeamSection = () => {
             <div className="bg-card border border-border rounded-lg p-6 md:p-7">
               <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Executive Committee</h3>
               <div className="overflow-x-auto md:overflow-visible scrollbar-hide">
-                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-4 md:pb-0 md:animate-none animate-[auto-scroll_20s_linear_infinite]">
-                  {/* Duplicate for seamless scroll on mobile */}
-                  {[...executiveMembers, ...executiveMembers].map((member, index) => (
+                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-4 md:pb-0 md:animate-none animate-[auto-scroll_6.67s_linear_infinite]">
+                  {executiveMembers.map((member, index) => (
                     <div
                       key={index}
                       className="bg-background border border-border rounded-lg p-5 flex flex-col items-center text-center hover:border-primary transition-all duration-300 min-w-[200px] md:min-w-0 flex-shrink-0"

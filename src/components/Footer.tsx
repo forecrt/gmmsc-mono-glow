@@ -3,20 +3,10 @@ import logo from "@/assets/ictclub_new_logo.png";
 import schoolLogo from "@/assets/school_logo.png";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { useContent } from "@/hooks/useContent";
-import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 export const Footer = () => {
   const { socialLinks } = useContent();
-  const [textColor, setTextColor] = React.useState('#ffffff');
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      const randomColor = `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')}`;
-      setTextColor(randomColor);
-    }, 100);
-    
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <footer className="relative w-full bg-card border-t border-border py-12">
@@ -106,13 +96,12 @@ export const Footer = () => {
           <p>&copy; {new Date().getFullYear()} GMMSC ICT Club. All rights reserved.</p>
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <p 
-                className="mt-2 text-xs font-bold glitch" 
-                style={{ color: textColor }}
+              <button 
+                className="mt-2 text-xs font-bold glitch text-foreground hover:text-primary transition-colors" 
                 data-text="Developed by Ornob"
               >
                 Developed by Ornob
-              </p>
+              </button>
             </AlertDialogTrigger>
             <AlertDialogContent className="bg-card border-border">
               <AlertDialogHeader>
@@ -139,6 +128,9 @@ export const Footer = () => {
                   </p>
                 </AlertDialogDescription>
               </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel className="bg-secondary text-secondary-foreground hover:bg-secondary/80">Close</AlertDialogCancel>
+              </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
         </div>
